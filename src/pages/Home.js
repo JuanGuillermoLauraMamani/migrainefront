@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../Style.css";
+import "../style.css";
 import * as FaIcons from 'react-icons/fa';
 import {
   Button,

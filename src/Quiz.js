@@ -1,6 +1,6 @@
 import preguntas from "./preguntas";
 import { useState, useEffect } from "react";
-import "./Global.css";
+import "./global.css";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import swal from 'sweetalert';

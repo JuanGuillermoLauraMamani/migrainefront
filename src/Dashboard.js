@@ -25,7 +25,7 @@ import Home from "./pages/Home";
 import { Switch} from 'react-router';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navegacion from "./Navbar";
-import "./Global.css";
+import "./global.css";
 const axios = require("axios");
 
 export default class Dashboard extends Component {
