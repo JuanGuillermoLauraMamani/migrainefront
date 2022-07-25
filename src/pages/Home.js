@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../Style.css";
 import * as FaIcons from 'react-icons/fa';
 import {
   Button,
@@ -22,13 +23,12 @@ import {
   TablePagination
 } from "@material-ui/core";
 
-import '../style.css';
-//import "../global.css";
 
 import { Pagination } from "@material-ui/lab";
 import swal from "sweetalert";
 
 import { Modal, ModalBody, ModalFooter, ModalHeader, Tab, Tabs } from "react-bootstrap";
+
 
 
 const axios = require("axios");
@@ -57,6 +57,7 @@ const sintomashead = ["EDAD",
 "DPF"]
 
 let map = new Map();
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -104,16 +105,16 @@ class Home extends React.Component {
       maxWidth: "100%",
       transform: "translate(-50%, -50%)"
     };
-
+ 
     return (
-      <div className='home rgba-gradient'>
+      <div >
 
         <div className="title-home">
           <h1>Perfil de Usuario</h1>
         </div>
-        <div class="wrapper">
+        <div className="wrapper">
 
-          <div class="left">
+          <div className="left">
             {<FaIcons.FaUserAlt width={"150px"} />}
 
             <h5>Username</h5>
@@ -123,25 +124,25 @@ class Home extends React.Component {
             <p> {this.props.userid}</p>
 
           </div>
-          <div class="right">
-            <div class="info">
+          <div className="right">
+            <div className="info">
               <h3>Informacion</h3>
-              <div class="info_data">
-                <div class="data">
+              <div className="info_data">
+                <div className="data">
                   <h4>Email</h4>
                   <p>{this.props.email}</p>
                 </div>
-                <div class="data">
+                <div className="data">
                   <h4></h4>
                   <p></p>
                 </div>
               </div>
             </div>
 
-            <div class="projects">
+            <div className="projects">
               <h3>Diagnostico</h3>
-              <div class="projects_data">
-                <div class="data">
+              <div className="projects_data">
+                <div className="data">
                   <h4>Aprox.</h4>
                   <p>{this.props.diagnostico}</p>
                 </div>
@@ -174,10 +175,10 @@ class Home extends React.Component {
                   this.state.pagina * this.state.rowxpagina, 
                   this.state.pagina  * this.state.rowxpagina + this.state.rowxpagina)
                   .map((cellsintoma) => {
-                  return <TableRow>
+                  return (<TableRow>
                     <TableCell >{cellsintoma}</TableCell>
                     <TableCell >{map.get(cellsintoma)}</TableCell>
-                  </TableRow>
+                  </TableRow>)
 
                 
                 })}

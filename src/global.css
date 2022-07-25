@@ -1,5 +1,5 @@
 * {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", sans-serif;
 }
 
 body {
@@ -115,15 +115,7 @@ button {
   margin-bottom: 20px;
 }
 
-.correct,
-.correct:hover {
-  background-color: #2f922f;
-}
 
-.incorrect,
-.incorrect:hover {
-  background-color: #ff3333;
-}
 
 .btns-container {
   display: flex;
@@ -155,21 +147,7 @@ button svg {
   text-align: center;
 }
 
-.rgba-gradient {
-  background: -moz-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
-  background: linear-gradient(to 45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
-}
 
-.rgba-gradient2 {
-  background: #ffffff;
-}
-
-
-.modal-content {
- 
-  background-color: #060b26;
-}
 
 
 

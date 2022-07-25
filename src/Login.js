@@ -48,15 +48,11 @@ export default class Login extends React.Component {
     console.log(this.state.email)
     console.log(this.state.password)
     return (
-      <Grid  container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{ minHeight: '100vh' }}>
+   
 
      
-      <div style={{ marginTop: '200px' }}>
+      <div className='login'
+          style={{ marginTop: '200px' }}>
         <div>
           <h2>Login</h2>
         </div>
@@ -99,7 +95,7 @@ export default class Login extends React.Component {
           </Link>
         </div>
       </div>
-      </Grid>
+  
     );
   }
 }

@@ -1,7 +1,7 @@
 import preguntas from "./preguntas";
 import { useState, useEffect } from "react";
-import "./global.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./Global.css";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import swal from 'sweetalert';
 import { Button, TextField, Link, Grid } from '@material-ui/core';

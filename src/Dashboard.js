@@ -25,7 +25,7 @@ import Home from "./pages/Home";
 import { Switch} from 'react-router';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navegacion from "./Navbar";
-import "./global.css";
+import "./Global.css";
 const axios = require("axios");
 
 export default class Dashboard extends Component {
@@ -296,7 +296,7 @@ export default class Dashboard extends Component {
       <div>
          <Router>
         <Navegacion props={this.props} state={this.state}> </Navegacion>
-        <div className="Dashboard">
+        <div >
           <div>
             {this.state.loading && <LinearProgress size={40} />}            <br />
           </div>

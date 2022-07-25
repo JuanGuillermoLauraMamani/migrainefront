@@ -26,6 +26,7 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "sass": "^1.54.0",
     "sweetalert": "^2.1.2"
   },
   "scripts": {
@@ -33,22 +34,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
- 
- 
-
-   " development": [
-      "last 1 version"
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-   " production": [
-      "last 1 version",
-      "> 1%",
-     " ie 10"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
