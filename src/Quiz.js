@@ -51,7 +51,7 @@ class Quiz extends React.Component {
         method: "POST",        
         body: JSON.stringify({ Sintomas: [this.state.respuestas]}),
         headers: {"Content-type": "application/json; charset=UTF-8",                 
-                  'Access-Control-Allow-Origin': 'https://apidiagnostico.herokuapp.com/predecir'
+                  'Access-Control-Allow-Origin': '*'
         }
       })
       .then(async (response) =>{
