@@ -166,7 +166,7 @@ class Home extends React.Component {
         <Modal show={this.state.abierto} style={{modalStyles, color:"#000"}}>
           <ModalHeader style={{  color:"#000"}} >Sintomas</ModalHeader>
           <ModalBody>
-            <TableContainer style={{ width: "450px", color:"#000"}} component={Paper}>
+            <TableContainer style={{ width: "auto", color:"#000"}} component={Paper}>
               <Table  style={{  color:"#000"}} sx={{ minWidth: "450px" }} aria-label="simple table">
 
                 {    

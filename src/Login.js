@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import swal from 'sweetalert';
-import { Button, TextField, Link, Grid } from '@material-ui/core';
+import {CircularProgress, Button, TextField, Link, Grid } from '@material-ui/core';
+import { makeStyles, withStyles, lighten } from '@material-ui/styles';
+
 import './Login.css';
+import Carga from './componentes/Carga';
+
 const axios = require('axios');
 const bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
@@ -12,7 +16,8 @@ export default class Login extends React.Component {
     this.state = {
       email:"",
       username: '',
-      password: ''
+      password: '',
+      loading:false
     };
   }
 
@@ -23,6 +28,7 @@ export default class Login extends React.Component {
 
     //const pwd = bcrypt.hashSync(this.state.password, salt);
 
+    this.setState({ loading: true })
     await axios.post('https://apimigraine.herokuapp.com/api/auth/signin', {
       email:this.state.email,
       username: this.state.username,
@@ -32,7 +38,12 @@ export default class Login extends React.Component {
       console.log('token', res.data.token)
       localStorage.setItem('user_id', res.data.id);
       console.log('user_id', res.data.id)
-      this.props.history.push('/dashboard/home');
+      
+     
+      this.setState({ loading:false })
+      this.props.history.push('/dashboard/home')
+      
+
     }).catch((err) => {
       if (err.response && err.response.data && err.response.data.errorMessage) {
         swal({
@@ -41,12 +52,29 @@ export default class Login extends React.Component {
           type: "error"
         });
       }
-    });
+    })
+  
+    
   }
 
   render() {
     console.log(this.state.email)
     console.log(this.state.password)
+    const classes = makeStyles({
+      root: {
+        position: 'relative',
+      },
+      top: {
+        color: '#eef3fd',
+      },
+      bottom: {
+        color: '#6798e5',
+        animationDuration: '550ms',
+        position: 'absolute',
+        left: 0,
+      },
+    });
+  
     return (
    
 
@@ -90,9 +118,19 @@ export default class Login extends React.Component {
           >
             Login
           </Button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
           <Link href="/api/auth/signup">
             Register
           </Link>
+          <br /><br />
+          {this.state.loading ? <><div>Espere...</div><br /><br />  <CircularProgress
+        variant="indeterminate"
+        disableShrink
+        className={classes.bottom}
+        size={24}
+        thickness={4}
+      
+      /> </>:  null}
         </div>
       </div>
   

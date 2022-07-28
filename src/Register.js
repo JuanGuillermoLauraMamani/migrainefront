@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import swal from 'sweetalert';
-import { Button, TextField, Link, Grid } from '@material-ui/core';
+import {CircularProgress, Button, TextField, Link, Grid } from '@material-ui/core';
+
+import { makeStyles, withStyles, lighten } from '@material-ui/styles';
 const axios = require('axios');
 
 export default class Register extends React.Component {
@@ -10,7 +12,8 @@ export default class Register extends React.Component {
       username: '',
       email:'',
       password: '',
-      confirm_password: ''
+      confirm_password: '',
+      loading:false
     };
   }
 
@@ -18,6 +21,7 @@ export default class Register extends React.Component {
 
   register = async() => {
 
+    this.setState({ loading: true })
     await axios.post('https://apimigraine.herokuapp.com/api/auth/signup', {
       username: this.state.username,
       email:this.state.email,
@@ -28,6 +32,7 @@ export default class Register extends React.Component {
         icon: "success",
         type: "success"
       });
+      this.setState({ loading: false })
       this.props.history.push('/');
     }).catch((err) => {
       swal({
@@ -43,6 +48,20 @@ export default class Register extends React.Component {
   }
 
   render() {
+    const classes = makeStyles({
+      root: {
+        position: 'relative',
+      },
+      top: {
+        color: '#eef3fd',
+      },
+      bottom: {
+        color: '#6798e5',
+        animationDuration: '550ms',
+        position: 'absolute',
+        left: 0,
+      },
+    });
     return (
 
       <Grid  container
@@ -116,6 +135,15 @@ export default class Register extends React.Component {
           <Link href="/api/auth/signin">
             Login
           </Link>
+          <br /><br />
+          {this.state.loading ? <> <div>Espere...</div><br /><br /> <CircularProgress
+        variant="indeterminate"
+        disableShrink
+        className={classes.bottom}
+        size={24}
+        thickness={4}
+      
+      /></> :  null}
         </div>
       </div>
 

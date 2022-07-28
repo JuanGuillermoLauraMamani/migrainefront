@@ -4,9 +4,10 @@ import "./global.css";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import swal from 'sweetalert';
-import { Button, TextField, Link, Grid } from '@material-ui/core';
 import Diagnostico from "./pages/Diagnostico";
+import {CircularProgress, Button, TextField, Link, Grid } from '@material-ui/core';
 
+import { makeStyles, withStyles, lighten } from '@material-ui/styles';
 const axios = require('axios');
 const resps=[];
 const respsV=[];
@@ -34,7 +35,14 @@ class Quiz extends React.Component {
 
       respuestasValor:[],
       entradaValor:"",
-      prediccion:""
+      prediccion:"",
+
+
+
+      loadingDiag:false,
+
+      loading:false
+
     };
   }
 
@@ -46,7 +54,7 @@ class Quiz extends React.Component {
 
   predecir= async (e)=>{
 
-   
+    this.setState({ loadingDiag: true })
     await fetch('https://apidiagnostico.herokuapp.com/predecir', {
         method: "POST",        
         body: JSON.stringify({ Sintomas: [this.state.respuestas]}),
@@ -85,12 +93,13 @@ class Quiz extends React.Component {
         if(datos['pred']==="4"){
             this.setState({prediccion:"migraña hemiplejica esporadica"})
         }
+        this.setState({ loadingDiag: false })
         swal({
             text: "Diagnostico aprox : "+this.state.prediccion,
             icon: "success",
             type: "success"
           });
-    
+       
         this.setState({terminardiag:true})
     }
         
@@ -112,7 +121,7 @@ class Quiz extends React.Component {
             'x-access-token': token
         }
       
-        
+        this.setState({ loading: true })
         await axios.put('https://apimigraine.herokuapp.com/api/users/'+ iduser,         
         JSON.stringify({
             sintomas: this.state.respuestasValor,
@@ -133,7 +142,7 @@ class Quiz extends React.Component {
             console.log(err) 
           });
         
-
+          this.setState({ loading: false })
           swal({
             text: "Diagnostico terminado",
             icon: "success",
@@ -147,7 +156,20 @@ class Quiz extends React.Component {
     
    
   render(){
-
+    const classes = makeStyles({
+        root: {
+          position: 'relative',
+        },
+        top: {
+          color: '#eef3fd',
+        },
+        bottom: {
+          color: '#6798e5',
+          animationDuration: '550ms',
+          position: 'absolute',
+          left: 0,
+        },
+      });
     
         return (
 
@@ -292,6 +314,7 @@ class Quiz extends React.Component {
            
             </div>
 
+        
             <button  disabled={this.state.prediccion===''}
                        // style={{display:this.state.hiden2}}
                     onClick={() => { 
@@ -302,8 +325,28 @@ class Quiz extends React.Component {
                     }}
                 >
                     Terminar Diagnostico
-                </button>   
-          
+            </button>   
+
+            <br /><br />
+            {this.state.loadingDiag ? <> <div>Diagnosticando...</div><br /><br /><CircularProgress
+        variant="indeterminate"
+        disableShrink
+        className={classes.bottom}
+        size={24}
+        thickness={4}
+      
+      /> </>:  null}
+
+        {this.state.loading ? <> <div>Espere...</div><br /><br /><CircularProgress
+        variant="indeterminate"
+        disableShrink
+        className={classes.bottom}
+        size={24}
+        thickness={4}
+      
+      /> </>:  null}
+
+
             </Grid>
         )
     }
