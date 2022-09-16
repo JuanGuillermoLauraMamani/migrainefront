@@ -122,7 +122,7 @@ class Quiz extends React.Component {
         }
       
         this.setState({ loading: true })
-        await axios.put(`http://apimigraine.herokuapp.com/api/users/`+ iduser,         
+        await axios.put(`https://apimigraine.herokuapp.com/api/users/`+ iduser,         
         JSON.stringify({
             sintomas: this.state.respuestasValor,
             diagnostico: this.state.prediccion , 

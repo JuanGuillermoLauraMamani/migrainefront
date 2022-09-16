@@ -188,7 +188,7 @@ predecir= async (e)=>{
 
     await axios
       .post(
-        `http://apimigraine.herokuapp.com/api/pacient/pacientes`,
+        `https://apimigraine.herokuapp.com/api/pacient/pacientes`,
         { iddoc: this.props.userid },
         { headers: { "x-access-token": this.props.token } }
       )
@@ -222,7 +222,7 @@ predecir= async (e)=>{
     let token = localStorage.getItem("token");
     await axios
       .get(
-       `http://apimigraine.herokuapp.com/api/pacient/paciente/` +idpac,
+       `https://apimigraine.herokuapp.com/api/pacient/paciente/` +idpac,
         {
           headers: {
             "Content-type": "application/json",
@@ -275,7 +275,7 @@ predecir= async (e)=>{
     this.setState({ loading: true });
     await axios
       .put(
-        `http://apimigraine.herokuapp.com/api/pacient/pacientes/` + iduser,
+        `https://apimigraine.herokuapp.com/api/pacient/pacientes/` + iduser,
         JSON.stringify({
           sintomas: this.state.respuestasValor,
           diagnostico: this.state.prediccion
@@ -317,7 +317,7 @@ predecir= async (e)=>{
     let token = localStorage.getItem("token");
     await axios
       .get(
-        `http://apimigraine.herokuapp.com/api/pacient/paciente/` +idpac,
+        `https://apimigraine.herokuapp.com/api/pacient/paciente/` +idpac,
         {
           headers: {
             "Content-type": "application/json",
@@ -350,7 +350,7 @@ predecir= async (e)=>{
     this.setState({ loading: true });
     await axios
       .put(
-        `http://apimigraine.herokuapp.com/api/pacient/paciente/` + iduser,
+        `https://apimigraine.herokuapp.com/api/pacient/paciente/` + iduser,
         JSON.stringify({
           _id:iduser,
           ci: this.state.ci,
@@ -389,7 +389,7 @@ predecir= async (e)=>{
     console.log(token)
 
 
-      await axios.delete(`http://apimigraine.herokuapp.com/api/pacient/paciente/${idpac}`, 
+      await axios.delete(`https://apimigraine.herokuapp.com/api/pacient/paciente/${idpac}`, 
         {headers: {
           "Content-type": "application/json",
             "x-access-token": token,
