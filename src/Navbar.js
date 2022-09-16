@@ -124,8 +124,8 @@ class Navegacion extends Component {
 
               {SidebarData.map((item, index) => {
                 console.log(this.props.swadmin)
-                if(this.props.swadmin==='62ba6877fd1b0b43c84d9514'){
-                  if(item.permiso.includes('62ba6877fd1b0b43c84d9514') ){
+                if(this.props.swadmin==='6323ec0fe3695dc227807221'){
+                  if(item.permiso.includes('6323ec0fe3695dc227807221') ){
                     return (
                       <li key={index} className={item.cName}>
                         <Link to={item.path}>
@@ -138,8 +138,8 @@ class Navegacion extends Component {
                 
                 }
               
-                if(this.props.swadmin==='62ba6877fd1b0b43c84d9512'){
-                  if(item.permiso.includes('62ba6877fd1b0b43c84d9512') ){
+                if(this.props.swadmin==='62dc479f69634f69540f421a'){
+                  if(item.permiso.includes('62dc479f69634f69540f421a') ){
                     return (
                       <li key={index} className={item.cName}>
                         <Link to={item.path}>
@@ -151,8 +151,8 @@ class Navegacion extends Component {
                   }
                 }
 
-                if(this.props.swadmin==='62ba6877fd1b0b43c84d9513'){
-                  if(item.permiso.includes('62ba6877fd1b0b43c84d9513') ){
+                if(this.props.swadmin==='6323ebe4e3695dc227807220'){
+                  if(item.permiso.includes('6323ebe4e3695dc227807220') ){
                     return (
                       <li key={index} className={item.cName}>
                         <Link to={item.path}>

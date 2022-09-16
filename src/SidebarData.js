@@ -10,14 +10,14 @@ export const SidebarData = [
     path: '/dashboard/diagnostico',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
-    permiso: ['62ba6877fd1b0b43c84d9512','62ba6877fd1b0b43c84d9514','62ba6877fd1b0b43c84d9513']
+    permiso: ['62dc479f69634f69540f421a','6323ec0fe3695dc227807221','6323ebe4e3695dc227807220']
   },
   {
     title: 'Tratamiento - Muy Pronto!!',
     path: '/dashboard/tratamiento',
     icon: <FaIcons.FaHeartbeat />,
     cName: 'nav-text',
-    permiso: ['62ba6877fd1b0b43c84d9512','62ba6877fd1b0b43c84d9514','62ba6877fd1b0b43c84d9513']
+    permiso: ['62dc479f69634f69540f421a','6323ec0fe3695dc227807221','6323ebe4e3695dc227807220']
   },
 
   {
@@ -25,14 +25,14 @@ export const SidebarData = [
     path: '/support',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text',
-    permiso: ['62ba6877fd1b0b43c84d9512','62ba6877fd1b0b43c84d9514','62ba6877fd1b0b43c84d9513']
+    permiso: ['62dc479f69634f69540f421a','6323ec0fe3695dc227807221','6323ebe4e3695dc227807220']
   },
   {
     title: 'Regitrar Doctor',
     path: '/dashboard/admin',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
-    permiso: ['62ba6877fd1b0b43c84d9514']
+    permiso: ['6323ec0fe3695dc227807221']
   },
 
   {
@@ -40,7 +40,7 @@ export const SidebarData = [
     path: '/dashboard/doctor',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
-    permiso: ['62ba6877fd1b0b43c84d9513']
+    permiso: ['6323ebe4e3695dc227807220']
   },
  
 
@@ -49,7 +49,7 @@ export const SidebarData = [
     path: '/dashboard/doctor/pacientes',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
-    permiso: ['62ba6877fd1b0b43c84d9513']
+    permiso: ['6323ebe4e3695dc227807220']
   },
  
  

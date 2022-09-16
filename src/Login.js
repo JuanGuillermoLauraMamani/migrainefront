@@ -40,7 +40,7 @@ export default class Login extends React.Component {
     //const pwd = bcrypt.hashSync(this.state.password, salt);
 
     this.setState({ loading: true })
-    await axios.post(`${process.env.API_URL}/api/auth/signin`, {
+    await axios.post(`http://apimigraine.herokuapp.com/api/auth/signin`, {
       email:this.state.email,
       username: this.state.username,
       password: this.state.password,
@@ -73,7 +73,7 @@ export default class Login extends React.Component {
     console.log(tokenId)
 
     await axios
-      .post(`${process.env.API_URL}/api/auth/googlelogin`, {
+      .post(`http://apimigraine.herokuapp.com/api/auth/googlelogin`, {
         idToken: tokenId
       })
       .then(res => {

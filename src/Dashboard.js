@@ -70,7 +70,7 @@ export default class Dashboard extends Component {
     let iduser = localStorage.getItem("user_id");
     if(iduser!==null){
     axios
-      .get(`${process.env.API_URL}/api/users/` + iduser, {})
+      .get(`http://apimigraine.herokuapp.com/api/users/` + iduser, {})
       .then((res) => {
        
         localStorage.setItem("nombre", res.data.username);

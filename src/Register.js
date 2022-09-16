@@ -24,7 +24,7 @@ export default class Register extends React.Component {
     
     this.setState({ loading: true })
 
-    await axios.post(`${process.env.API_URL}/api/auth/signup`
+    await axios.post(`http://apimigraine.herokuapp.com/api/auth/signup`
    
    
     , {
@@ -58,7 +58,7 @@ export default class Register extends React.Component {
     console.log(tokenId)
 
     await axios
-      .post(`${process.env.API_URL}/api/auth/googlelogin`, {
+      .post(`http://apimigraine.herokuapp.com/api/auth/googlelogin`, {
         idToken: tokenId
       })
       .then(res => {
