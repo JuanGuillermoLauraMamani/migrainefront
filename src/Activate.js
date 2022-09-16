@@ -57,7 +57,7 @@ class Activate extends React.Component {
     e.preventDefault();
 
     axios
-      .post(`http://localhost:4000/api/auth/activation`, {
+      .post(`${process.env.API_URL}/api/auth/activation`, {
         token:this.state.token
       })
       .then(res => {

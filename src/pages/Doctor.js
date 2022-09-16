@@ -26,7 +26,7 @@ export default class Doctor extends React.Component {
     
     this.setState({ loading: true })
 
-    await axios.post(`http://localhost:4000/api/pacient/doctor`
+    await axios.post(`${process.env.API_URL}/api/pacient/doctor`
     , {
       ci: this.state.ci,
       nombre:this.state.nombre

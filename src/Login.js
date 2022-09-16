@@ -40,11 +40,11 @@ export default class Login extends React.Component {
     //const pwd = bcrypt.hashSync(this.state.password, salt);
 
     this.setState({ loading: true })
-    await axios.post('http://localhost:4000/api/auth/signin', {
+    await axios.post(`${process.env.API_URL}/api/auth/signin`, {
       email:this.state.email,
       username: this.state.username,
       password: this.state.password,
-    }).then((res) => {
+    }).then((res) => { 
       localStorage.setItem('token', res.data.token);
       console.log('token', res.data.token)
       localStorage.setItem('user_id', res.data.id);
@@ -73,7 +73,7 @@ export default class Login extends React.Component {
     console.log(tokenId)
 
     await axios
-      .post(`http://localhost:4000/api/auth/googlelogin`, {
+      .post(`${process.env.API_URL}/api/auth/googlelogin`, {
         idToken: tokenId
       })
       .then(res => {

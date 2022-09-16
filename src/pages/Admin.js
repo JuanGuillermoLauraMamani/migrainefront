@@ -26,7 +26,7 @@ export default class Admin extends React.Component {
     
     this.setState({ loading: true })
 
-    await axios.post(`http://localhost:4000/api/users/admin`
+    await axios.post(`${process.env.API_URL}/api/users/admin`
     , {
       username: this.state.username,
       email:this.state.email,
