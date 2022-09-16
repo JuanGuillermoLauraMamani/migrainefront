@@ -26,6 +26,12 @@ import { Switch} from 'react-router';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navegacion from "./Navbar";
 import "./global.css";
+import Admin from "./pages/Admin";
+import Doctor from "./pages/Doctor";
+import Paciente from "./pages/Paciente";
+import PrivadoAdm from "./PrivadoAdm";
+import PrivadoDoc from "./PrivadoDoc";
+import PrivadoPac from "./PrivadoPac";
 const axios = require("axios");
 
 export default class Dashboard extends Component {
@@ -40,7 +46,8 @@ export default class Dashboard extends Component {
       nombre:"",
       email:"",
       sintomas:[],
-      diagnostico:""
+      diagnostico:"",
+      swadmin:""
     };
   }
 
@@ -61,27 +68,30 @@ export default class Dashboard extends Component {
   signin = () => {
     //const pwd = bcrypt.hashSync(this.state.password, salt);
     let iduser = localStorage.getItem("user_id");
+    if(iduser!==null){
     axios
-      .get("https://apimigraine.herokuapp.com/api/users/" + iduser, {})
+      .get("http://localhost:4000/api/users/" + iduser, {})
       .then((res) => {
        
         localStorage.setItem("nombre", res.data.username);
         localStorage.setItem("email", res.data.email);
         localStorage.setItem("diagnostico", res.data.diagnostico);
         localStorage.setItem("sintomas", res.data.sintomas);
-
+        localStorage.setItem("rol", res.data.roles[0]);
 
         console.log("user_id", iduser);    
         console.log("nombre", res.data.username);
         console.log("email", res.data.email);
         console.log("diagnostico", res.data.diagnostico);
         console.log("sintomas", res.data.sintomas);
+        console.log("sintomas", res.data.roles[0]);
         
         this.setState({userid:iduser})
         this.setState({nombre: res.data.username});
         this.setState({email: res.data.email});
         this.setState({diagnostico: res.data.diagnostico});
         this.setState({sintomas: res.data.sintomas});
+        this.setState({swadmin: res.data.roles[0]});
 
       })
       .catch((err) => {
@@ -97,6 +107,8 @@ export default class Dashboard extends Component {
           });
         }
       });
+
+    }
   };
 
   logOut = () => {
@@ -106,6 +118,7 @@ export default class Dashboard extends Component {
     localStorage.setItem("diagnostico", null);
     localStorage.setItem("sintomas", null);
     localStorage.setItem("nombre", null);
+    localStorage.setItem("rol", null);
     this.props.history.push("/api/auth/signin");
   };
   /*
@@ -295,7 +308,7 @@ export default class Dashboard extends Component {
     return (
       <div>
          <Router>
-        <Navegacion props={this.props} state={this.state}> </Navegacion>
+        <Navegacion props={this.props} state={this.state}  swadmin={this.state.swadmin}> </Navegacion>
         <div >
           <div>
             {this.state.loading && <LinearProgress size={40} />}            <br />
@@ -317,6 +330,47 @@ export default class Dashboard extends Component {
                                   ></Home>)} />
           <Route exact path={match.url+"/tratamiento"} component={Tratamiento} />
           <Route exact path={match.url+"/diagnostico"} component={Diagnostico} />
+          
+          <PrivadoAdm
+            path={match.url+"/admin"}
+            exact
+            componentAdmin={() => (
+              <Admin
+              token={this.state.token}
+              />
+            )}
+         
+            swadmin={this.state.swadmin}
+          />
+
+
+          <PrivadoDoc
+            path={match.url+"/doctor"}
+           exact
+            componentDoctor={() => (
+              <Doctor
+              token={this.state.token}
+              />
+            )}
+         
+            swadmin={this.state.swadmin}
+          />
+          
+
+          <PrivadoPac
+            path={match.url+"/doctor/pacientes"}
+            exact
+            componentPaciente={() => (
+              <Paciente
+              token={this.state.token}
+              userid={this.state.userid}
+              />
+            )}
+         
+            swadmin={this.state.swadmin}
+          />
+          
+          
           </Switch>
           {/* <Route component={NotFound}/> */}
         </Router>

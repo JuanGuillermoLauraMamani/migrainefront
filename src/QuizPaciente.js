@@ -13,7 +13,7 @@ const resps=[];
 const respsV=[];
 
 
-class Quiz extends React.Component {
+class QuizPaciente extends React.Component {
 
 
   
@@ -110,50 +110,7 @@ class Quiz extends React.Component {
         
       this.setState({hidem3:"none"})  
     }
-  updatediagnostico=async(e)=>{
-        let iduser = localStorage.getItem("user_id");
-        let token = localStorage.getItem("token");
-     
-       console.log(this.state.prediccion)
-    
-    const headers = {
-            'content-type': 'application/json',
-            'x-access-token': token
-        }
-      
-        this.setState({ loading: true })
-        await axios.put('https://apimigraine.herokuapp.com/api/users/'+ iduser,         
-        JSON.stringify({
-            sintomas: this.state.respuestasValor,
-            diagnostico: this.state.prediccion , 
-        })
-        ,
-        {
-            headers : {
-            'content-type': 'application/json',
-            'x-access-token': token
-            }
-        }
-        
-        ).then((res) => {
-            
-            console.log(res)
-          }).catch((err) => {
-            console.log(err) 
-          });
-        
-          this.setState({ loading: false })
-          swal({
-            text: "Diagnostico terminado",
-            icon: "success",
-            type: "success"
-          });
-          
-          this.props.props.history.push('/dashboard/home');
 
-          
-    }
-    
    
   render(){
     const classes = makeStyles({
@@ -313,20 +270,6 @@ class Quiz extends React.Component {
            
            
             </div>
-
-        
-            <button  disabled={this.state.prediccion===''}
-                       // style={{display:this.state.hiden2}}
-                    onClick={() => { 
-                      
-                       
-                        this.updatediagnostico()
-                           
-                    }}
-                >
-                    Terminar Diagnostico
-            </button>   
-
             <br /><br />
             {this.state.loadingDiag ? <> <div>Diagnosticando...</div><br /><br /><CircularProgress
         variant="indeterminate"
@@ -352,4 +295,4 @@ class Quiz extends React.Component {
     }
 }
 
-export default Quiz;
+export default QuizPaciente;

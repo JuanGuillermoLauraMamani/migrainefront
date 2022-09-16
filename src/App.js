@@ -9,6 +9,8 @@ import Diagnostico from "./pages/Diagnostico"
 import Tratamiento from "./pages/Tratamiento"
 import Home from "./pages/Home"
 import Navbar from './Navbar';
+import Activate from "./Activate";
+import Admin from "./pages/Admin";
     
 
 
@@ -26,7 +28,8 @@ class App extends Component {
             <Switch>
                 <Redirect exact from="/" to='/api/auth/signin' />
                 <Route exact path='/api/auth/signin' component={Login} />
-                <Route exact path='/api/auth/signup' component={Register} />  
+                <Route exact path='/api/auth/signup' component={Register} />
+                <Route exact path='/api/auth/activation/:token' component={Activate} />  
                 <Route path='/dashboard' component={Dashboard} />              
                
             </Switch>

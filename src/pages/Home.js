@@ -74,6 +74,8 @@ class Home extends React.Component {
     };
   }
 
+  
+
   abrirModal = () => {
     this.setState({ abierto: !this.state.abierto });
     console.log(this.state.abierto)
@@ -93,9 +95,7 @@ class Home extends React.Component {
 
   render() {
 
-    for(let i=0;i<this.props.sintomas.length;i++){  
-        map.set(sintomashead[i],this.props.sintomas[i])
-    }
+
 
     const modalStyles = {
        

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import swal from 'sweetalert';
 import {CircularProgress, Button, TextField, Link, Grid } from '@material-ui/core';
 import { makeStyles, withStyles, lighten } from '@material-ui/styles';
-
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from 'gapi-script';
 import './Login.css';
 import Carga from './componentes/Carga';
-
+import authSvg from './assests/login.svg';
 const axios = require('axios');
 const bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
@@ -21,7 +22,17 @@ export default class Login extends React.Component {
     };
   }
 
+  componentDidMount=()=>{
+    window.gapi.load('client:auth2', () => {
+      window.gapi.client.init({
+          clientId: '997142542146-81cisqtmecm491e2fnncsk0hqkgdu2n2.apps.googleusercontent.com',
+         
+      })})
+
+  }
+
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
 
   
   login = async () => {
@@ -29,7 +40,7 @@ export default class Login extends React.Component {
     //const pwd = bcrypt.hashSync(this.state.password, salt);
 
     this.setState({ loading: true })
-    await axios.post('https://apimigraine.herokuapp.com/api/auth/signin', {
+    await axios.post('http://localhost:4000/api/auth/signin', {
       email:this.state.email,
       username: this.state.username,
       password: this.state.password,
@@ -57,6 +68,43 @@ export default class Login extends React.Component {
     
   }
 
+  sendGoogleToken = async tokenId => {
+
+    console.log(tokenId)
+
+    await axios
+      .post(`http://localhost:4000/api/auth/googlelogin`, {
+        idToken: tokenId
+      })
+      .then(res => {
+        console.log(res.data);
+        localStorage.setItem('token', res.data.token);
+        console.log('token', res.data.token)
+        localStorage.setItem('user_id', res.data.user._id);
+        console.log('user_id', res.data.user._id)
+        //informParent(res);
+        this.props.history.push('/dashboard/home')
+      })
+      .catch(error => {
+        console.log('GOOGLE SIGNIN ERROR', error.response);
+      });
+  };
+  /*
+  informParent = response => {
+    authenticate(response, () => {
+      isAuth() && isAuth().role === 'admin'
+        ? history.push('/admin')
+        : history.push('/private');
+    });
+  };
+  */
+
+
+  responseGoogle = response => {
+    console.log(response);
+     this.sendGoogleToken(response.tokenId);
+  };
+
   render() {
     console.log(this.state.email)
     console.log(this.state.password)
@@ -78,11 +126,11 @@ export default class Login extends React.Component {
     return (
    
 
-     
+     <div  className='contenedor'>
       <div className='login'
           style={{ marginTop: '200px' }}>
         <div>
-          <h2>Login</h2>
+          <h2>Iniciar Sesion</h2>
         </div>
 
         <div>
@@ -93,7 +141,7 @@ export default class Login extends React.Component {
             name="email"
             value={this.state.email}
             onChange={this.onChange}
-            placeholder="email"
+            placeholder="Email"
             required
           />
           <br /><br />
@@ -104,7 +152,7 @@ export default class Login extends React.Component {
             name="password"
             value={this.state.password}
             onChange={this.onChange}
-            placeholder="Password"
+            placeholder="Constraseña"
             required
           />
           <br /><br />
@@ -116,14 +164,14 @@ export default class Login extends React.Component {
             disabled={this.state.username ==='' && this.state.password === ''}
             onClick={this.login}
           >
-            Login
+            Iniciar Sesion
           </Button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      
           <Link href="/api/auth/signup">
-            Register
+            Registrarse
           </Link>
           <br /><br />
-          {this.state.loading ? <><div>Espere...</div><br /><br />  <CircularProgress
+          {this.state.loading ? <><div className='bloqueo'>Espere...</div><br /><br />  <CircularProgress
         variant="indeterminate"
         disableShrink
         className={classes.bottom}
@@ -132,8 +180,23 @@ export default class Login extends React.Component {
       
       /> </>:  null}
         </div>
+
+
+        <GoogleLogin
+                  clientId={`997142542146-81cisqtmecm491e2fnncsk0hqkgdu2n2.apps.googleusercontent.com`}
+                  buttonText="Iniciar sesion con google"
+                  onSuccess={(response)=>{this.responseGoogle(response)}}
+                  onFailure={(response)=>{this.responseGoogle(response);console.log(response)}}
+                 
+                  cookiePolicy={'single_host_origin'}
+                ></GoogleLogin>
+
+        
+          
+       
       </div>
-  
+   
+  </div>
     );
   }
 }

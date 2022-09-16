@@ -1,6 +1,6 @@
 const preguntas = [
   {
-    titulo: "¿Cuantos años tienes?",
+    titulo: "¿Que edad tienes?",
     id:"pg1",
     tipopregunta:"input",
     respuesta: [
@@ -9,7 +9,7 @@ const preguntas = [
     ],
   },
   {
-    titulo: "Cual fue la duracion de los sintomas en el ultimo episodio de tus migrañas en dias...?",
+    titulo: "Cual fue la duracion de los sintomas en el ultimo episodio de tus migrañas en dias ?",
     id:"pg2",
     tipopregunta:"input",
     respuesta: [
@@ -25,7 +25,7 @@ const preguntas = [
     ],
   },
   {
-    titulo: "¿Como clasificarias tu dolor de cabeza 0 niguna , Unilatera 1, Bilateral 2)?",
+    titulo: "¿Como clasificarias tu dolor de cabeza?",
     id:"pg4",
     tipopregunta:"button",
     respuesta: [
@@ -37,7 +37,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Que caracteristica tiene tu dolor de cabeza Ningua 0 Palpitante 1 Constante 2",
+    titulo: "¿Que caracteristica tiene tu dolor de cabeza?",
     id:"pg5",
     tipopregunta:"button",
     respuesta: [
@@ -50,7 +50,7 @@ const preguntas = [
 
 
   {
-    titulo: "¿Que nivel de dolor de cabeza crees tener  (Ninguna - 0, Leve - 1, Media - 2, Severa - 3",
+    titulo: "¿Que nivel de dolor de cabeza crees tener?",
     id:"pg6",
     tipopregunta:"button",
     respuesta: [
@@ -62,7 +62,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Tus migrañas te provocan nauseas no 0 si 1",
+    titulo: "¿Tus migrañas te provocan nauseas?",
     id:"pg7",
     tipopregunta:"button",
     respuesta: [
@@ -73,7 +73,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Tus migrañas te provocan nvomitos no 0 si 1",
+    titulo: "¿Tus migrañas te provocan vomitos?",
     id:"pg8",
     tipopregunta:"button",
     respuesta: [
@@ -84,7 +84,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Tus migrañas son provocados por mucho ruido, es decir tienes sensibildad al ruido no 0 si 1",
+    titulo: "¿Tus migrañas son provocados por mucho ruido?, es decir tienes sensibildad al ruido ",
     id:"pg10",
     tipopregunta:"button",
     respuesta: [
@@ -95,7 +95,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Tus migrañas son provocados cualquier provenencia de luz, es decir tienes sensibildad a la luz no 0 si 1",
+    titulo: "¿Tus migrañas son provocados cualquier provenencia de luz?, es decir tienes sensibildad a la luz",
     id:"pg11",
     tipopregunta:"button",
     respuesta: [
@@ -106,7 +106,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Segun tu experiencia cuantos problemas visuales se presentan junto a tus migrañas",
+    titulo: "Segun tu experiencia cuantos problemas visuales se presentan junto a tus migrañas",
     id:"pg12",
     tipopregunta:"input",
     respuesta: [
@@ -117,7 +117,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Segun tu experiencia cuantos problemas sensoriales se presentan junto a tus migrañas",
+    titulo: "Segun tu experiencia cuantos problemas sensoriales se presentan junto a tus migrañas",
     id:"pg13",
     tipopregunta:"input",
     respuesta: [
@@ -130,7 +130,7 @@ const preguntas = [
 
 
   {
-    titulo: "¿Alguna vez se presentaron problemas de coordinacion del habla",
+    titulo: "¿Alguna vez se presentaron problemas de coordinacion del habla?",
     id:"pg14",
     tipopregunta:"button",
     respuesta: [
@@ -143,7 +143,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez se presentaron problemas de Sonidos y palabras desarticuladas",
+    titulo: "¿Alguna vez se presentaron problemas de Sonidos y palabras desarticuladas?",
     id:"pg15",
     tipopregunta:"button",
     respuesta: [
@@ -155,7 +155,7 @@ const preguntas = [
   },
   
   {
-    titulo: "¿Alguna vez se presentaron problemas de vertigo o mareos",
+    titulo: "¿Alguna vez se presentaron problemas de vertigo o mareos?",
     id:"pg16",
     tipopregunta:"button",
     respuesta: [
@@ -168,7 +168,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Sufres de tinitus, es decir zumbidos en el oido",
+    titulo: "¿Sufres de tinitus, es decir zumbidos en el oido?",
     id:"pg17",
     tipopregunta:"button",
     respuesta: [
@@ -181,7 +181,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez sufriste de disminucion de sensibilidad auditiva o perdida de audicion (hipoacusis)",
+    titulo: "¿Alguna vez sufriste de disminucion de sensibilidad auditiva o perdida de audicion?",
     id:"pg18",
     tipopregunta:"button",
     respuesta: [
@@ -194,7 +194,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez sufriste de vision doble durante tus episodios",
+    titulo: "¿Alguna vez sufriste de vision doble durante tus episodios?",
     id:"pg19",
     tipopregunta:"button",
     respuesta: [
@@ -206,7 +206,7 @@ const preguntas = [
     ],
   },
   {
-    titulo: "¿Alguna vez sufriste de problemas simultáneo del campo ocular frontal o del campo nasal o en ambos ojos (No - 0, Sí - 1)",
+    titulo: "¿Alguna vez sufriste de problemas?",
     id:"pg20",
     tipopregunta:"button",
     respuesta: [
@@ -217,7 +217,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez sufriste de problema en el control muscular de tu cuerpo (No - 0, Sí - 1)",
+    titulo: "¿Alguna vez sufriste de problema en el control muscular de tu cuerpo?",
     id:"pg21",
     tipopregunta:"button",
     respuesta: [
@@ -228,7 +228,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez sufriste de problemas en la perdidad de conciencia (No - 0, Sí - 1)",
+    titulo: "¿Alguna vez sufriste de problemas en la perdidad de conciencia?",
     id:"pg22",
     tipopregunta:"button",
     respuesta: [
@@ -239,7 +239,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez sufriste de sensación de hormigueo y entumecimiento, adormecimiento o ardor  (No - 0, Sí - 1)",
+    titulo: "¿Alguna vez sufriste de sensación de hormigueo y entumecimiento, adormecimiento o ardor?",
     id:"pg23",
     tipopregunta:"button",
     respuesta: [
@@ -250,7 +250,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Crees tener familiares con tus mismos problemas de migraña  (No - 0, Sí - 1)",
+    titulo: "¿Crees tener familiares con tus mismos problemas de migraña ?",
     id:"pg24",
     tipopregunta:"button",
     respuesta: [

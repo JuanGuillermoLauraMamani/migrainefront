@@ -53,6 +53,8 @@ class Navegacion extends Component {
     this.setState({ iduser: localStorage.getItem("user_id") });
     this.setState({ nombre: localStorage.getItem("nombre") });
     this.setState({ email: localStorage.getItem("email") });
+
+    
     
   };
 
@@ -66,7 +68,9 @@ class Navegacion extends Component {
     localStorage.setItem("email", null);
     localStorage.setItem("diagnostico", null);
     localStorage.setItem("sintomas", null);
+    localStorage.setItem("rol", null);
     this.props.props.history.push("/api/auth/signin");
+    
   };
 
   setToggle = () => {
@@ -88,23 +92,22 @@ class Navegacion extends Component {
         <IconContext.Provider value={{ color: "#fff" }}>
           <div className="navbar">
           
-          <div  className="navbar-center">
+      
             <Link to="#" className="menu-bars">
               <FaIcons.FaBars onClick={this.showSidebar} />
             </Link>
-            </div>
+      
 
-            <div  className="navdropdown navbar-rigth" >
+    
             <Link to="#" className="menu-bars">
               <FaIcons.FaUserAlt  onClick={this.showdropdown} />
             </Link>
-          
-            </div>
+        
 
             
           </div>
 
-          <nav className={this.state.sidebar ? "nav-menu active" : "nav-menu"}>
+          <nav className={this.state.sidebar?"nav-menu active":"nav-menu"}>
             <ul className="nav-menu-items" onClick={this.showSidebar}>
               <li className="navbar-toggle">
                 <Link to="#" className="menu-bars">
@@ -120,15 +123,48 @@ class Navegacion extends Component {
               </div>
 
               {SidebarData.map((item, index) => {
-                return (
-                  <li key={index} className={item.cName}>
-                    <Link to={item.path}>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
-                  </li>
-                );
-              })}
+                console.log(this.props.swadmin)
+                if(this.props.swadmin==='62ba6877fd1b0b43c84d9514'){
+                  if(item.permiso.includes('62ba6877fd1b0b43c84d9514') ){
+                    return (
+                      <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    );
+                }
+                
+                }
+              
+                if(this.props.swadmin==='62ba6877fd1b0b43c84d9512'){
+                  if(item.permiso.includes('62ba6877fd1b0b43c84d9512') ){
+                    return (
+                      <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  }
+                }
+
+                if(this.props.swadmin==='62ba6877fd1b0b43c84d9513'){
+                  if(item.permiso.includes('62ba6877fd1b0b43c84d9513') ){
+                    return (
+                      <li key={index} className={item.cName}>
+                        <Link to={item.path}>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  }
+                }
+              }
+              )}
             </ul>
           </nav>
           <nav className={this.state.showdropdown ? "nav-dropdown active" : "nav-dropdown"}>
@@ -141,7 +177,7 @@ class Navegacion extends Component {
               </li>
 
               <li className="nav-text">
-              <Link onClick={this.logOut} >
+              <Link onClick={this.logOut} to="/api/auth/signin"> 
                   <FaIcons.FaSignOutAlt />
                   <span>SALIR</span>
               </Link>
