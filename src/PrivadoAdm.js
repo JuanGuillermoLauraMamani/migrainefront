@@ -21,7 +21,7 @@ class PrivadoAdm extends Component {
     return (
       <Route exact={this.props.exact} path={this.props.path}>
 
-        {this.props.swadmin === '62ba6877fd1b0b43c84d9514' ? 
+        {this.props.swadmin === '6323ec0fe3695dc227807221' ? 
         (
           <div className="row">
             <div

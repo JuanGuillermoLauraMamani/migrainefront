@@ -21,7 +21,7 @@ class PrivadoDoc extends Component {
     return (
       <Route exact={this.props.exact} path={this.props.path}>
 
-        {this.props.swadmin === '62ba6877fd1b0b43c84d9513' ?
+        {this.props.swadmin === '6323ebe4e3695dc227807220' ?
             (<div className="row">
             <div
               className="col-md-12 order-md-1"
