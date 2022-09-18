@@ -17,6 +17,14 @@ export default class Register extends React.Component {
       loading:false
     };
   }
+  componentDidMount=()=>{
+    window.gapi.load('client:auth2', () => {
+      window.gapi.client.init({
+          clientId: '997142542146-it4p06gght4l6u3t5pq3tf65ssgauhod.apps.googleusercontent.com',
+         
+      })})
+
+  }
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
