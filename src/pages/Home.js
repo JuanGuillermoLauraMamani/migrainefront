@@ -96,7 +96,9 @@ class Home extends React.Component {
   render() {
 
 
-
+    for(let i=0 ;i<sintomashead.length;i++ ){
+      map.set(sintomashead[i],this.props.sintomas[i])
+    }
     const modalStyles = {
        
       position: "absolute",

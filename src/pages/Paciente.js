@@ -414,6 +414,8 @@ predecir= async (e)=>{
   };
 
   render() {
+
+    
     const modalStyles = {
       position: "absolute",
       top: "50%",
