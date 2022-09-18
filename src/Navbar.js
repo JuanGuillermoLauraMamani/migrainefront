@@ -92,19 +92,20 @@ class Navegacion extends Component {
         <IconContext.Provider value={{ color: "#fff" }}>
           <div className="navbar">
           
-      
+            <div className="navbar-center">
             <Link to="#" className="menu-bars">
               <FaIcons.FaBars onClick={this.showSidebar} />
             </Link>
-      
+            </div>
 
-    
+            <div className="navbar-rigth">
             <Link to="#" className="menu-bars">
               <FaIcons.FaUserAlt  onClick={this.showdropdown} />
             </Link>
         
 
-            
+            </div>
+
           </div>
 
           <nav className={this.state.sidebar?"nav-menu active":"nav-menu"}>

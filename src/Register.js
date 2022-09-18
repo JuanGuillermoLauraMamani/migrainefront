@@ -33,7 +33,7 @@ export default class Register extends React.Component {
       password: this.state.password,
     }).then((res) => {
       swal({
-        text: res.data.title,
+        text: "Se envio un mensaje de confimacion a tu correo electronico",
         icon: "success",
         type: "success"
       });
