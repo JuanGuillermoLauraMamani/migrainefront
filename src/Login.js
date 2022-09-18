@@ -80,8 +80,8 @@ export default class Login extends React.Component {
         console.log(res.data);
         localStorage.setItem('token', res.data.token);
         console.log('token', res.data.token)
-        localStorage.setItem('user_id', res.data.user.id);
-        console.log('user_id', res.data.user.id)
+        localStorage.setItem('user_id', res.data.id);
+        console.log('user_id', res.data.id)
         //informParent(res);
         this.props.history.push('/dashboard/home')
       })
