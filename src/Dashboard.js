@@ -84,7 +84,7 @@ export default class Dashboard extends Component {
         console.log("email", res.data.email);
         console.log("diagnostico", res.data.diagnostico);
         console.log("sintomas", res.data.sintomas);
-        console.log("sintomas", res.data.roles[0]);
+        console.log("roles", res.data.roles[0]);
         
         this.setState({userid:iduser})
         this.setState({nombre: res.data.username});
