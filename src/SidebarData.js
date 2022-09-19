@@ -40,7 +40,7 @@ export const SidebarData = [
     path: '/dashboard/doctor',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
-    permiso: ['6323ebe4e3695dc227807220']
+    permiso: ['6323ebe4e3695dc22780']
   },
  
 

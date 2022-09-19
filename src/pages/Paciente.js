@@ -250,6 +250,45 @@ predecir= async (e)=>{
   };
 
 
+  registrarpaciente = async() => {
+
+    let token = localStorage.getItem("token");
+    
+    this.setState({ loading: true })
+
+    await axios.post(`https://apimigraine.herokuapp.com/api/pacient/doctor`
+    , {
+      ci: this.state.ci,
+      nombre:this.state.nombre
+    }, {headers:{
+        "Content-type": "application/json; charset=UTF-8",                 
+    "x-access-token":token }}
+    
+    ).then((res) => {
+        console.log("entro aqui")
+        this.renderpacientes();
+      swal({
+        text: res.data.title,
+        icon: "success",
+        type: "success"
+      });
+      this.setState({ loading: false })
+    
+    }).catch((err) => {
+        console.log("error aqui")
+      swal({
+        text: err.response.data.errorMessage,
+        icon: "error",
+        type: "error"
+      });
+    });
+
+
+    
+    this.setState({ abiertomodalcrearpaciente:false });
+  }
+
+
   abrilmodaldiagnostico = async (idpac) => {
     this.setState({ abiertomodaldiag: !this.state.abiertomodaldiag });
     this.setState({iduser:idpac})
@@ -894,10 +933,52 @@ predecir= async (e)=>{
             </ModalHeader>
             <ModalBody>
 
-                <Doctor>
+            <div>
+          <TextField
+            id="standard-basic"
+            type="text"
+            autoComplete="off"
+            name="ci"
+            value={this.state.ci}
+            onChange={this.onChange}
+            placeholder="ci"
+            required
+          />
+          <br /><br />
 
-                </Doctor>
-              
+          <TextField
+            id="standard-basic"
+            type="text"
+            autoComplete="off"
+            name="nombre"
+            value={this.state.nombre}
+            onChange={this.onChange}
+            placeholder="nombre"
+            required
+          />
+         <br /><br />
+
+          <Button
+            className="button_style"
+            variant="contained"
+            color="primary"
+            size="small"
+            disabled={this.state.username === '' && this.state.password === ''}
+            onClick={this.registrarpaciente}
+          >
+            Registrar
+          </Button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <br /><br />
+          {this.state.loading ? <> <div>Espere...</div><br /><br /> <CircularProgress
+        variant="indeterminate"
+        disableShrink
+        className={classes.bottom}
+        size={24}
+        thickness={4}
+      
+      /></> :  null}
+        </div>
             </ModalBody>
 
             <ModalFooter>
