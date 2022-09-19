@@ -120,10 +120,12 @@ export default class Paciente extends React.Component {
 
 predecir= async (e)=>{
 
+  const sints=this.state.respuestas.map(x => parseInt(x));
+
   this.setState({ loadingDiag: true })
-  await fetch('https://apidiagnostico.herokuapp.com/predecir', {
+  await fetch('https://web-production-9492.up.railway.app/predict', {
       method: "POST",        
-      body: JSON.stringify({ Sintomas: [this.state.respuestas]}),
+      body: JSON.stringify({ Sintomas: [sints]}),
       headers: {"Content-type": "application/json; charset=UTF-8",                 
                 'Access-Control-Allow-Origin': '*'
       }
@@ -132,32 +134,34 @@ predecir= async (e)=>{
      const  datos = await response.json()
       console.log(datos)
       console.log(datos['pred'])
-      console.log(datos['descr'])
-     
+    
 
 
-      if(datos['pred']==="6"){
-          this.setState({prediccion:"Aura tipica con migraña"})
+      if(datos['pred']===6){
+          this.setState({prediccion:"Aura tipica sin migraña"})
       }
-      if(datos['pred']==="2"){
+      if(datos['pred']===5){
+        this.setState({prediccion:"Aura tipica con migraña"})
+    }
+      if(datos['pred']===2){
           this.setState({prediccion:"migraña sin aura"})
       }
-      if(datos['pred']==="1"){
-          this.setState({prediccion:"migraña gemiplejica fimilar"})
+      if(datos['pred']===1){
+          this.setState({prediccion:"Migraña hemipléjica familiar"})
       }
-      if(datos['pred']==="7"){
-          this.setState({prediccion:"aura tipica sin migraña"})
+      if(datos['pred']===7){
+          this.setState({prediccion:"Migraña cronica"})
       }
-      if(datos['pred']==="0"){
-          this.setState({prediccion:"Migraña basilar"})
+      if(datos['pred']===0){
+          this.setState({prediccion:"Aura de tipo basilar"})
       }
 
-      if(datos['pred']==="3"){
+      if(datos['pred']===3){
           this.setState({prediccion:"Posiblemente no tengas migraña y sea otro tipo de cefalea casual"})
       }
       
-      if(datos['pred']==="4"){
-          this.setState({prediccion:"migraña hemiplejica esporadica"})
+      if(datos['pred']===4){
+          this.setState({prediccion:"Migraña hemiplejica esporadica"})
       }
       this.setState({ loadingDiag: false })
       swal({
