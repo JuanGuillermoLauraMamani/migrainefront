@@ -1,10 +1,18 @@
 .activate{
     display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   
   
 }
-
+.a {
+    text-decoration: none;
+}
+.button_style {
+    margin-left: 10px !important;
+    margin-right: 10px;
+  }
 .activateapp{
     position: absolute;
     top: 10%;    
@@ -28,14 +36,19 @@
 
 .activateform{
     border-radius: 15px;
-    background-color:#494f6b ;
-   
+    background-color:#494f6b ;   
     width: 300px;
     height: 300px;
     display: flex; 
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    align-content: center;
 
 
+}
+
+.iniciasesion{
+    background-color: rgb(255, 252, 249);
+    border-radius: 15px;
 }

@@ -153,8 +153,12 @@ class Home extends React.Component {
             </div>
 
 
-            <Button color="primary" onClick={this.abrirModal}>
-              Sintomas
+            <Button  className="button_style"
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          onClick={this.abrirModal}>
+               Sintomas
             </Button>
 
 

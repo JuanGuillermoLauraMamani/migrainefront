@@ -9,7 +9,7 @@ const preguntas = [
     ],
   },
   {
-    titulo: "Cual fue la duracion de los sintomas en el ultimo episodio de tus migrañas en dias ?",
+    titulo: "¿Cuál fue la duración en el último episodio de tus migrañas en días?",
     id:"pg2",
     tipopregunta:"input",
     respuesta: [
@@ -25,7 +25,7 @@ const preguntas = [
     ],
   },
   {
-    titulo: "¿Como clasificarias tu dolor de cabeza?",
+    titulo: "¿Como clasificarias tu dolor de cabeza? Si lo tienes",
     id:"pg4",
     tipopregunta:"button",
     respuesta: [
@@ -106,7 +106,7 @@ const preguntas = [
   },
 
   {
-    titulo: "Segun tu experiencia cuantos problemas visuales se presentan junto a tus migrañas",
+    titulo: "Segun tu experiencia cuantos problemas visuales se presentan junto a tus migrañas, tomando en cuenta, visión de luces brillantes, luces que parpadean y puntos ciegos (escotoma) Visión doble, pérdida transitoria de visión, dolor en los ojos (solo un número)",
     id:"pg12",
     tipopregunta:"input",
     respuesta: [
@@ -117,7 +117,7 @@ const preguntas = [
   },
 
   {
-    titulo: "Segun tu experiencia cuantos problemas sensoriales se presentan junto a tus migrañas",
+    titulo: "Segun tu experiencia cuantos problemas sensoriales se presentan junto a tus migrañas, tomando en cuenta, entumecimientos, hormigueos, tambien cuentan sensibilades a la luz, sonido y  olores (solo un número)",
     id:"pg13",
     tipopregunta:"input",
     respuesta: [
@@ -168,7 +168,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Sufres de tinitus, es decir zumbidos en el oido?",
+    titulo: "¿Sufres de tinitus, es decir zumbidos o pitidos en el oido?",
     id:"pg17",
     tipopregunta:"button",
     respuesta: [
@@ -206,7 +206,7 @@ const preguntas = [
     ],
   },
   {
-    titulo: "¿Alguna vez sufriste de problemas?",
+    titulo: "¿Sufriste de defectos problemas visuales como, escotomas, glaucomas, etc?",
     id:"pg20",
     tipopregunta:"button",
     respuesta: [
@@ -217,7 +217,7 @@ const preguntas = [
   },
 
   {
-    titulo: "¿Alguna vez sufriste de problema en el control muscular de tu cuerpo?",
+    titulo: "¿Alguna vez sufriste de problema en el control muscular de tu cuerpo?, es decir,  movimientos torpes involuntarios, dificultades para caminar y mantener el equilibrio, mala coordinación de las manos",
     id:"pg21",
     tipopregunta:"button",
     respuesta: [

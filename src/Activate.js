@@ -6,7 +6,8 @@ import jwt from 'jsonwebtoken';
 //import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import "./activate.css"
-
+import { Button } from 'react-bootstrap';
+import swal from 'sweetalert';
 class Activate extends React.Component {
 
   /*
@@ -53,6 +54,12 @@ class Activate extends React.Component {
    
   }
 
+  signin = () => {
+    
+    this.props.history.push("/api/auth/signin");
+    
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -64,11 +71,19 @@ class Activate extends React.Component {
         
         this.setState({show:false   })
 
-        toast.success(res.data.message);
+        swal({
+          text: res.data.message,
+          icon: "success",
+          
+        });
       })
       .catch(err => {
-        
-        toast.error(err.response.data.errors);
+          swal({
+          text: err.response.data.errors,
+          icon: "error",
+         
+        });
+
       });
   };
   render(){
@@ -83,36 +98,31 @@ class Activate extends React.Component {
        
          
             <h1 >
-              Welcome {this.state.nombre}
+              Bienvenido {this.state.nombre}
             </h1>
 
             <form 
                   className='activateform'
                    onSubmit={this.handleSubmit}
             >
-              <div className='activate-item-form' >
-                <button
+               <span>Dale click en Activa tu cuenta</span>
+                <Button className='button_style'
                   type='submit'
                   
                 >
-                  <i/>
-                  <span >Activate your Account</span>
-                </button>
-              </div>
+                
+                  <span >Activa tu cuenta</span>
+                </Button>
               <div >
                 <div >
-                  Or sign up again
+                  O inicia sesion en: 
                 </div>
-                <div>
-                <a
-                  
-                  href='api/api/register'
-                  target='_self'
-                >
-                  <i />
-                  <span >Sign Up</span>
-                </a>
-              </div>
+               
+
+                <Button onClick={this.signin}>
+            Iniciar Sesion
+          </Button>
+            
               </div>
              
             </form>

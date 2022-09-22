@@ -127,8 +127,11 @@ export default class Login extends React.Component {
    
 
      <div  className='contenedor'>
+      
       <div className='login'
-          style={{ marginTop: '200px' }}>
+          style={{ //marginTop: '200px' 
+          }}>
+              
         <div>
           <h2>Iniciar Sesion</h2>
         </div>
@@ -195,6 +198,12 @@ export default class Login extends React.Component {
           
        
       </div>
+      
+      <div  className='imagen'
+            style={{ backgroundImage: `url(${authSvg})` }}
+          >
+
+          </div>
    
   </div>
     );

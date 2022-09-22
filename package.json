@@ -34,7 +34,8 @@
     "react-toastify": "^5.5.0",
     "sass": "^1.54.0",
     "serve": "^14.0.1",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.4.33"
   },
   "scripts": {
     "dev": "react-scripts start",

@@ -18,6 +18,7 @@ h2 {
 
 
 .login{
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,10 +29,14 @@ h2 {
 
 
 .contenedor{
+  
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 15% 0;
+  
+  
   
 
 }
@@ -39,7 +44,7 @@ h2 {
 .imagen{
 
   width: 300px;
-  height: 300px;
+  height: 265px;
   background-size:contain;
   
 }
@@ -51,3 +56,59 @@ h2 {
   z-index:10;
   
 }
+
+@media (max-width:400px){
+  .contenedor{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40% 0;
+    
+    
+    
+  
+  }
+}
+
+@media (min-width:400px){
+  .contenedor{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25% 0;
+    
+    
+    
+  
+  }
+}
+
+@media (min-width:800px){
+  .contenedor{
+   
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   padding: 15% 0;
+   
+ 
+ }
+ }
+@media (min-width:1000px){
+ .contenedor{
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10% 0;
+  
+
+}
+}
+

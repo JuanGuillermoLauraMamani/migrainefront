@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import swal from 'sweetalert';
 import {CircularProgress, Button, TextField, Link, Grid } from '@material-ui/core';
-
+import authSvg from './assests/auth.svg';
 import { makeStyles, withStyles, lighten } from '@material-ui/styles';
 import GoogleLogin from 'react-google-login';
+import './Register.css';
 const axios = require('axios');
 
 export default class Register extends React.Component {
@@ -116,15 +117,24 @@ export default class Register extends React.Component {
     });
     return (
 
-      <Grid  container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{ minHeight: '100vh' }}>
-      <div style={{ marginTop: '200px' }}>
+      <Grid  
+      className='contenedor'
+      //container
+      //spacing={0}
+      //direction="row"
+      //alignItems="center"
+      //alignContent='center'
+      //justifyContent="center"
+      style={{ 
+        //minHeight: '100vh' 
+      }}>
+      <div 
+        className='login'
+      style={{ 
+        //marginTop: '200px' 
+        }}>
         <div>
-          <h2>Register</h2>
+          <h2>Registro</h2>
         </div>
 
         <div>
@@ -207,6 +217,12 @@ export default class Register extends React.Component {
                   cookiePolicy={'single_host_origin'}
                 ></GoogleLogin>
       </div>
+
+      <div  className='imagen'
+            style={{ backgroundImage: `url(${authSvg})` }}
+          >
+
+          </div>
 
       </Grid>
     );
