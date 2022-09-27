@@ -100,9 +100,9 @@ export default class Login extends React.Component {
   */
 
 
-  responseGoogle = response => {
+  responseGoogle = async (response) => {
     console.log(response);
-     this.sendGoogleToken(response.tokenId);
+    await this.sendGoogleToken(response.tokenId);
   };
 
   render() {
