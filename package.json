@@ -1,5 +1,6 @@
 {
-  "name": "product",
+  "name": "migrainefront",
+  "homepage": "https://juanguillermolauramamani.github.io/migrainefront",
   "version": "0.1.0",
   "private": true,
   "engines": {
